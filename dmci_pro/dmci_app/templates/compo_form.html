@@ -1,0 +1,24 @@
+
+<form action="{% url 'dmci_app:compo_form' %}" method="POST">{% csrf_token %}
+
+    <div>id:{{ id }}</div>
+    <br>
+    <div>プロダクト名:</div>
+    <div>{{ form.product_name }}</div>
+        {% if form.errors.title %}
+            {% for error in form.errors.title %}
+                <div><font color="red">{{ error }}</font></div>
+            {% endfor %}
+        {% endif %}
+   <br>
+    <div>プロダクトテキスト:</div>
+    <div>{{ form.product_text }}</div>
+        {% if form.errors.text %}
+            {% for error in form.errors.text %}
+                <div><font color="red">{{ error }}</font></div>
+            {% endfor %}
+        {% endif %}
+   <br>
+    <button type="submit" name="button_1">登録プレビューへ</button>
+</form>
+
