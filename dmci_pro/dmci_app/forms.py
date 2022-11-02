@@ -16,3 +16,17 @@ class CompoForm(forms.Form):
         max_length=500,
         widget=forms.Textarea,
     )
+    
+    qty = forms.IntegerField(
+            label='数量',
+            initial=0,
+            required=True,
+    )
+
+    unit_price = forms.IntegerField(
+            label='単体価格',
+            initial=0,
+            required=True,
+    )
+
+

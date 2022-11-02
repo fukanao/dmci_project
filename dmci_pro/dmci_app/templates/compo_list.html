@@ -7,6 +7,9 @@
             <th>Data</th>
             <th>created</th>
             <th>updated</th>
+            <th>unit price</th>
+            <th>qty</th>
+            <th>total price</th>
         </tr>
     </thead>
     <tbody>
@@ -28,6 +31,15 @@
             </td>
             <td>
                     {{ object.updated_datetime }}
+            </td>
+            <td>
+                    {{ object.unit_price }}
+            </td>
+            <td>
+                    {{ object.qty }}
+            </td>
+            <td>
+                    {{ object.total }}
             </td>
             <form method="POST">
                 {% csrf_token %}

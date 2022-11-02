@@ -1,15 +1,16 @@
+<div>構成：{{ compo_num }} </div>
+<br>
 {% for field in form %}
     {{ field.name }}:{{ field.value }}<br>
 {% endfor %}
-
-
-    <div>構成：{{ compo_num }}</div>
 
 <form method="POST" action="">
     {% csrf_token %}
     {% for field in form %}
        {{ field.as_hidden }}
     {% endfor %}
+    トータル：￥{{ total_price }}
+    <p>
     <input type="submit" name="button_3" value="構成登録終了してその他製品登録">
     <input type="submit" name="button_2" value="別の構成を追加登録">
     <input type="submit" name="button_4" value="内部バッファをすべてリセット">

@@ -1,7 +1,7 @@
 
 <form action="{% url 'dmci_app:compo_form' %}" method="POST">{% csrf_token %}
 
-    <div>id:{{ id }}</div>
+    <div>構成:{{ compo_num }}</div>
     <br>
     <div>プロダクト名:</div>
     <div>{{ form.product_name }}</div>
@@ -18,6 +18,12 @@
                 <div><font color="red">{{ error }}</font></div>
             {% endfor %}
         {% endif %}
+   <br>
+   <div>単体価格：</div>
+   <div>{{ form.unit_price }}</div>
+   <br>
+   <div>数量：</div>
+   <div>{{ form.qty }}</div>
    <br>
     <button type="submit" name="button_1">登録プレビューへ</button>
 </form>
