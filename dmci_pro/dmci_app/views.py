@@ -78,6 +78,18 @@ def compo_form(request):
             qty = int(form.data['qty'])
             total_price = unit_price * qty
             # DB書き込み
+            for input_object in input_compo_object_list:
+                compo_set = DjangoTestCompo.objects.create(
+                    product_name = input_object.product_name,
+                    product_text = input_object.product_text,
+                    unit_price = input_object.unit_price,
+                    qty = input_object.qty,
+                    total = input_object.total,
+                    created_datetime = created_datetime,
+                )
+                    
+
+            '''
             compo_set = DjangoTestCompo.objects.create(
                     product_name = form.data['product_name'],
                     product_text = form.data['product_text'],
@@ -87,7 +99,10 @@ def compo_form(request):
                     created_datetime = created_datetime,
                     )
             print('#30', created_datetime)
-
+            '''
+            # compo object list初期化
+            input_compo_object = []
+            compo_form_num = 0
 
             return redirect('/compo_list/')
 
