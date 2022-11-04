@@ -1,0 +1,17 @@
+
+<form action="{% url 'dmci_app:main_form' %}" method="POST">{% csrf_token %}
+
+    <div>MainForm</div>
+    <br>
+    <div>見積もりmeta_id:</div>
+    <div>{{ form.quatation_meta_id }}</div>
+    <br>
+    <div>見積もり名:</div>
+    <div>{{ form.quatation_subject }}</div>
+   <br>
+    <div>顧客名:</div>
+    <div>{{ form.customer_id }}</div>
+   <br>
+    <button type="submit" name="button_1">登録プレビューへ</button>
+</form>
+

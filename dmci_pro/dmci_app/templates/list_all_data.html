@@ -1,0 +1,103 @@
+{% load tz %}
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>quatation_meta_id</th>
+            <th>quatation_subject</th>
+            <th>customer_id</th>
+            <th>quatation_total</th>
+            <th>created</th>
+            <th>updated</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in main_data %}
+        <tr>
+            <td>
+                    {{ object.id }}
+            </td>
+             <td>
+                    {{ object.quatation_meta_id }}
+            </td>
+             <td>
+                    {{ object.quatation_subject }}
+            </td>
+             <td>
+                    {{ object.customer_id }}
+            </td>
+             <td>
+                    {{ object.quatation_total }}
+            </td>
+             <td>
+                    {{ object.created_datetime }}
+            </td>
+             <td>
+                    {{ object.updated_datetime }}
+            </td>
+             <form method="POST">
+                {% csrf_token %}
+                <td><button type="submit" name={{ object.id }}>select</td>
+            </form>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+        <br>
+ 
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>quatation_meta_id</th>
+            <th>name</th>
+            <th>text</th>
+            <th>unit price</th>
+            <th>qty</th>
+            <th>total price</th>
+            <th>created</th>
+            <th>updated</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in compo_data %}
+        <tr>
+            <td>
+                    {{ object.id_num }}
+            </td>
+            <td>
+                    {{ object.quatation_meta_id }}
+            </td>
+            <td>
+                    {{ object.product_name }}
+            </td>
+            <td>
+                    {{ object.product_text }}
+            </td>
+            <td>
+                    {{ object.unit_price }}
+            </td>
+            <td>
+                    {{ object.qty }}
+            </td>
+            <td>
+                    {{ object.total }}
+            </td>
+            <td>
+                    {{ object.created_datetime}}
+            </td>
+            <td>
+                    {{ object.updated_datetime }}
+            </td>
+            <form method="POST">
+                {% csrf_token %}
+                <td><button type="submit" name={{ object.id_num }}>select</td>
+            </form>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+        <br>
+    <p>
+    <a href="http://10.0.1.5:8080/">TOP</a>
