@@ -27,6 +27,7 @@ def portal(request):
 def compo_form(request):
     form = CompoForm
     global compo_form_num
+    global input_compo_object_list
     # 入力値オブジェクト作成
     compo_obj = InputCompoObject()
     # 入力値オブジェクトへインプット関数
@@ -73,10 +74,6 @@ def compo_form(request):
         elif form.is_valid() and ('button_3' in request.POST):
             # DB書き込み時間取得
             created_datetime = datetime.datetime.now()
-            # トータル金額取得
-            unit_price = int(form.data['unit_price'])
-            qty = int(form.data['qty'])
-            total_price = unit_price * qty
             # DB書き込み
             for input_object in input_compo_object_list:
                 compo_set = DjangoTestCompo.objects.create(
@@ -88,20 +85,8 @@ def compo_form(request):
                     created_datetime = created_datetime,
                 )
                     
-
-            '''
-            compo_set = DjangoTestCompo.objects.create(
-                    product_name = form.data['product_name'],
-                    product_text = form.data['product_text'],
-                    unit_price = form.data['unit_price'],
-                    qty = form.data['qty'],
-                    total = total_price,
-                    created_datetime = created_datetime,
-                    )
-            print('#30', created_datetime)
-            '''
             # compo object list初期化
-            input_compo_object = []
+            input_compo_object_list = []
             compo_form_num = 0
 
             return redirect('/compo_list/')
