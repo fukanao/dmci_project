@@ -5,11 +5,22 @@ from .models import DjangoTestMain
 
 
 class CompoForm(forms.Form):
+
+    products = (
+            ("product_1", "product_1"),
+            ("product_2", "product_2"),
+            ("product_3", "product_3"),
+    )
+
+    product_name = forms.ChoiceField(label = "プロダクト名", choices = products)
+
+    '''
     product_name = forms.CharField(
         label='プロダクト名',
         required=False,
         max_length=100,
     )
+    '''
 
     product_text = forms.CharField(
         label='プロダクトテキスト',
